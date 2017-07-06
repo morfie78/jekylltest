@@ -3,7 +3,7 @@
 #
 
 # Name of your site (displayed in the header)
-name: Blocksat
+name: Blockstream
 
 # Short bio or description (displayed in the header)
 description: Test Jekyll site
@@ -15,7 +15,14 @@ avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/je
 # Flags below are optional
 #
 
-poop: pee
+# ---- site vars ----
+site_logo: images/sitelogo.png
+
+# -------------------
+
+
+collections:
+  - bitcoin
 
 # Includes an icon in the footer for each username you enter
 footer-links:

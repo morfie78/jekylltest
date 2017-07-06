@@ -1,1 +1,189 @@
-﻿
+﻿/** START: Resets **/
+* {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a { border: none 0px; }
+
+html, object, div, a, span { outline: none; }
+
+html { font-size: 62.5%; }
+
+html,body {
+    min-height: 100% !important;
+    font-family: 'Lato', sans-serif;
+    background: transparent;
+}
+
+.text-strong, strong { font-weight: bold; }
+.text-em, em { font-style: italic; }
+
+ul,li {
+    margin: 0;
+    padding: 0;
+    list-style: none none outside;
+}
+/** END: Resets **/
+
+/** START: Bootstrap Overrides **/
+h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+}
+
+.btn-clean {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    background: Transparent none;
+}
+
+.col-nopad {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.form-control {
+	font-size: 18px;
+    border: 2px solid black;
+    border-radius: 0;
+}
+
+.form-control:focus {
+    border-color: red !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px red !important;
+    outline: 0 none !important;
+}
+a[data-toggle="tooltip"] {
+    display: inline-block;
+}
+
+
+@media (min-width: 1440px) {
+    .container { width: 1400px; }
+}
+
+/** END: Bootstrap Overrides **/
+
+/** START: Helpers/Utilities **/
+.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; }
+.embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+/** END: Helpers/Utilities **/
+
+
+/** START: Text Formatting **/
+.lato { font-family: 'Lato', sans-serif; }
+
+a {
+    color: white;
+}
+h1 {
+    font-size: 4.4rem;
+}
+h4 {
+    font-size: 1.792rem;
+    color: $brand-primary;
+}
+p {
+    font-size: 2.15rem;
+    line-height: 1.3;
+}
+/** END: Text Formatting **/
+
+/** START: Footer **/
+.sitefooter .col {
+    float: left;
+    width: 20%;
+}
+.col.nav-logo {
+    width: 40%;
+}
+.sitefooter h4 {
+    margin-bottom: 10px;
+}
+.sitefooter li {
+    margin-bottom: 5px;
+}
+
+@media (max-width: 767px) {
+    .sitefooter .col {
+        float: none;
+        display: block;
+        width: 95%;
+        margin: 0 auto 10px;
+    }
+}
+/** END: Footer **/
+
+/** START: Content Pages **/
+[data-layout="content"] .tmpl-wrap {
+    margin-left: $content-nav-width;
+    padding-left: 28px;
+    background: transparent none no-repeat top center;
+    background-size: contain;
+}
+.content {
+}
+.contentnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: $content-nav-width;
+    background: #4c4c4c;
+    z-index: 1;
+}
+
+.content-head {
+    position: relative;
+    overflow: hidden;
+    clear: both;
+    padding-top: 190px;
+    background: transparent none no-repeat center top;
+}
+.content-head h1 {
+    margin-bottom: 4.4rem;
+}
+
+.col-left, .col-right {
+    float: left;
+    width: 48%;
+}
+.col-left {
+    margin-right: 4%;
+}
+
+.content-head .scroll {
+    display: table;
+    clear: both;
+    margin: 0 auto 110px;
+    padding-top: 80px;
+}
+
+.content > .entry {
+    float: none;
+    clear: both;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 720px - $content-leftmar;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        width: 940px - $content-leftmar;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1116px - $content-leftmar;
+    }
+}
+@media (min-width: 1400px) {
+    .container {
+        width: 1350px - $content-leftmar;
+    }
+}
+/** END: Content Pages **/

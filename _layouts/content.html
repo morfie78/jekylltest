@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<section class="content">
+    <div class="content-head" {% if 1>2 %} style="background-image: url('{{ site.base_path }}/{{ page.head_bg }}');" {% endif %} >
+        <div class="col-left">
+            {% if page.yt_url %}
+            <div class="embed-container"><iframe src="{{ page.yt_url }}" frameborder="0" allowfullscreen></iframe></div>
+            {% endif %}
+        </div>
+        <div class="col-right">
+            <h1>{{ page.title }}</h1>
+            <p>{{ page.description }}</p>
+        </div>
+        <img class="scroll" src="{{ site.base_path }}/images/scroll.png" alt="Scroll To Explore" />
+    </div>
+    <div class="entry">
+        {{ content }}
+    </div>
+    <nav class="contentnav">
+
+    </nav>
+</section>

@@ -1,19 +1,23 @@
-﻿body {
+﻿$starbg: #0d0d0e;
+
+.stars {
+  position: fixed;
   width: 100vw;
   height: 100vh;
   margin: 0;
   overflow: hidden;
-  background-image: radial-gradient(center, ellipse cover, #27364f 0%, #112 50%, #112 100%);
-  background: -moz-radial-gradient(center, ellipse cover, #27364f 0%, #112 50%, #112 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #27364f), color-stop(50%, #112), color-stop(100%, #112));
-  background: -webkit-radial-gradient(center, ellipse cover, #27364f 0%, #112 50%, #112 100%);
-  background: -o-radial-gradient(center, ellipse cover, #27364f 0%, #112 50%, #112 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #27364f 0%, #112 50%, #112 100%);
-  filter: 'progid:DXImageTransform.Microsoft.gradient( startColorstr=' #27364f ', endColorstr=' #112 ',GradientType=1 )';
+  background-image: radial-gradient(center, ellipse cover, #27364f 0%, $starbg 50%, $starbg 100%);
+  background: -moz-radial-gradient(center, ellipse cover, #27364f 0%, $starbg 50%, $starbg 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #27364f), color-stop(50%, $starbg), color-stop(100%, $starbg));
+  background: -webkit-radial-gradient(center, ellipse cover, #27364f 0%, $starbg 50%, $starbg 100%);
+  background: -o-radial-gradient(center, ellipse cover, #27364f 0%, $starbg 50%, $starbg 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #27364f 0%, $starbg 50%, $starbg 100%);
+  filter: 'progid:DXImageTransform.Microsoft.gradient( startColorstr=' #27364f ', endColorstr=' $starbg ',GradientType=1 )';
   background-position: 50% 0%;
   background-size: 150vmax 150vmax;
   background-repeat: no-repeat;
-  background-color: #112;
+  background-color: $starbg;
+  z-index: -1;
 }
 .stars .starcontainer {
   position: absolute;

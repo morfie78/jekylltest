@@ -1,0 +1,20 @@
+---
+layout: content
+title: The Power of Bitcoin
+description: Bitcoin is the first decentralized cryptocurrency that bypasses banks payment systems that allows online payments to be sent directly from one party to another without going through a financial institution or third party like Paypal.
+yt_url: https://www.youtube.com/embed/OyQ5EbOEXoY?rel=0&amp;showinfo=0
+head_bg: images/bitcoin_head.png
+id: bitcoin
+---
+{% for bitcoin in site.bitcoin %}
+<div class="content-section bitcoin-section">
+    <div class="col-left">
+        <h2>{{ bitcoin.title }}</h2>
+        {{ bitcoin.content }}
+    </div>
+    <img class="content-img" src="{{ site.base_path }}/{{ bitcoin.image_path }}" alt="{{ bitcoin.title }}" />
+{% if bitcoin.bot_pic %}
+    <img class="content-bot" src="{{ site.base_path }}/{{ bitcoin.bot_pic }}" alt="{{ bitcoin.title }}" />
+{% endif %}
+</div>
+{% endfor %}

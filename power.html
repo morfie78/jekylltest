@@ -5,16 +5,31 @@ description: Bitcoin is the first decentralized cryptocurrency that bypasses ban
 yt_url: https://www.youtube.com/embed/OyQ5EbOEXoY?rel=0&amp;showinfo=0
 head_bg: images/bitcoin_head.png
 id: bitcoin
+foot_descr: Find out what makes <br/>Bitcoin so secure.
 ---
 {% for bitcoin in site.bitcoin %}
-<div class="content-section bitcoin-section">
+<div data-name="{{ bitcoin.name }}" class="content-section bitcoin-section {% if bitcoin.bot_pic %}section-hasbot{% else %}section-nobot{% endif %}">
     <div class="col-left">
         <h2>{{ bitcoin.title }}</h2>
         {{ bitcoin.content }}
     </div>
-    <img class="content-img" src="{{ site.base_path }}/{{ bitcoin.image_path }}" alt="{{ bitcoin.title }}" />
+    {% if bitcoin.image_txt %}<div class="content_img_box">{% endif %}
+        <img class="content-img" src="{{ site.base_path }}/{{ bitcoin.image_path }}" alt="{{ bitcoin.title }}" />
+    {% if bitcoin.image_txt %}
+        <p>$2963.34</p>
+    </div>
+    {% endif %}
 {% if bitcoin.bot_pic %}
     <img class="content-bot" src="{{ site.base_path }}/{{ bitcoin.bot_pic }}" alt="{{ bitcoin.title }}" />
 {% endif %}
 </div>
 {% endfor %}
+<nav class="contentnav">
+    <ul>
+        <li class="navlogo"><a href="#" title="{{ site.title }}"><img src="{{ site.base_path }}/images/navlogo.png" alt="{{ site.title }}">{{ site.title }}</a></li>
+        <li class="navglobe"><a href="#" alt=""><img src="{{ site.base_path }}/images/navglobe.png" alt="" /></a></li>
+{% for bitcoin in site.bitcoin %}
+        <li class="navitem"><a href="#" title="" class="nav-dot"></a></li>
+{% endfor %}
+    </ul>
+</nav>

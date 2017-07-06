@@ -2,11 +2,12 @@
 ---
 
 $brand-primary: #00ccff;
+$brand-secondary: #83e1fd;
 $text-color: white !default;
 $grid-gutter-width: 0px !default;
 
 $content-nav-width: 82px;
-$content-leftmar: 110px;
+$content-leftmar: 28px;
 
 @import "bootstrap";
 @import "stars.scss";

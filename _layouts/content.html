@@ -16,8 +16,13 @@ layout: default
     </div>
     <div class="entry">
         {{ content }}
+        {% if page.foot_descr %}
+        <a href="#" title="" class="foot_descr">
+            <div class="flex-container">
+                <p class="flex-item">{{ page.foot_descr }}</p>
+                <img class="flex-item" src="{{ site.base_path }}/images/nextarrow.png" alt="" />
+            </div>
+        </a>
+        {% endif %}
     </div>
-    <nav class="contentnav">
-
-    </nav>
 </section>

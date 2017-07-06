@@ -81,6 +81,9 @@ a {
 h1 {
     font-size: 4.4rem;
 }
+h2 {
+    font-size: 3.2rem;
+}
 h4 {
     font-size: 1.792rem;
     color: $brand-primary;
@@ -116,6 +119,42 @@ p {
 }
 /** END: Footer **/
 
+
+/** START: Content Nav **/
+.contentnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: $content-nav-width;
+    padding: 20px 0 0 0;
+    background: #4c4c4c;
+    z-index: 1;
+}
+
+.navlogo {
+    display: table;
+    margin: 0 auto 80px;
+}
+.navglobe {
+    display: table;
+    margin: 0 auto 130px;
+}
+
+.nav-dot {
+    display: table;
+    width: 28px;
+    height: 28px;
+    margin: 0 auto 35px;
+    background: transparent url('images/navdots.png') no-repeat top left;
+}
+.nav-dot:hover,
+.nav-dot.active {
+    background-position-y: -29px;
+}
+/** END: Content Nav **/
+
+
 /** START: Content Pages **/
 [data-layout="content"] .tmpl-wrap {
     margin-left: $content-nav-width;
@@ -124,15 +163,6 @@ p {
     background-size: contain;
 }
 .content {
-}
-.contentnav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: $content-nav-width;
-    background: #4c4c4c;
-    z-index: 1;
 }
 
 .content-head {
@@ -161,10 +191,75 @@ p {
     padding-top: 80px;
 }
 
+.content-section {
+    overflow: hidden;
+}
+.content-section.section-nobot {
+    margin-bottom: 120px;
+}
+.content-section .col-left {
+    width: 53%;
+}
+
+.content-section h2 {
+    margin-bottom: 32px;
+}
+.content-section p {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+.content-section .content-img {
+    padding-top: 50px;
+}
+.content_img_box {
+    position: relative;
+    display: inline-block;
+}
+.content_img_box p {
+    position: absolute;
+    top: 110px;
+    left: 0;
+    right: 0;
+    font-size: 4.8rem;
+    text-align: center;
+    color: $brand-secondary;
+}
+
 .content > .entry {
     float: none;
     clear: both;
 }
+
+.section-nobot {
+    
+}
+.content-bot {
+    float: none;
+    clear: both;
+    display: block;
+    margin: 0 auto 100px;
+}
+.foot_descr  {
+    display: block;
+    margin-bottom: 120px;
+    text-decoration: none;
+    color: white;
+
+    &:hover, &:active {
+        text-decoration: none;
+        color: white;
+    }
+
+    p {
+        margin: 0 20px 0 0;
+
+        :hover, :active {
+            text-decoration: none;
+           color: white;
+        }
+    }
+}
+
 
 @media (min-width: 768px) {
     .container {
@@ -186,4 +281,48 @@ p {
         width: 1350px - $content-leftmar;
     }
 }
+@media (max-width: 991px) {
+    .content-section .col-left {
+        float: none;
+        width: 95%;
+        margin: 0;
+    }
+    .content-section .content-img {
+        display: block;
+        margin: 0 auto 100px;
+    }
+}
 /** END: Content Pages **/
+
+.flex-container {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.flex-item {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+}

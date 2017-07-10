@@ -6,6 +6,9 @@ yt_url: https://www.youtube.com/embed/OyQ5EbOEXoY?rel=0&amp;showinfo=0
 head_bg: images/bitcoin_head.png
 id: bitcoin
 foot_descr: Find out what makes <br/>Bitcoin so secure.
+jsarr:
+- js/ScrollTrigger.min.js
+- js/global.js
 ---
 {% for bitcoin in site.bitcoin %}
 <div data-name="{{ bitcoin.name }}" class="content-section bitcoin-section {% if bitcoin.bot_pic %}section-hasbot{% else %}section-nobot{% endif %}">
@@ -29,7 +32,7 @@ foot_descr: Find out what makes <br/>Bitcoin so secure.
         <li class="navlogo"><a href="#" title="{{ site.title }}"><img src="{{ site.base_path }}/images/navlogo.png" alt="{{ site.title }}">{{ site.title }}</a></li>
         <li class="navglobe"><a href="#" alt=""><img src="{{ site.base_path }}/images/navglobe.png" alt="" /></a></li>
 {% for bitcoin in site.bitcoin %}
-        <li class="navitem"><a href="#" title="" class="nav-dot"></a></li>
+        <li class="navitem"><a href="#" title="{{ bitcoin.title }}" class="nav-dot"><span>{{ bitcoin.title }}</span></a></li>
 {% endfor %}
     </ul>
 </nav>

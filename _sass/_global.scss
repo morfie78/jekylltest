@@ -99,6 +99,12 @@ p {
     float: left;
     width: 20%;
 }
+.sitefooter .col + .col {
+    margin-bottom: 18px;
+    padding: 50px 0 15px 14px;
+    border-left: 1px solid #232526;
+}
+
 .col.nav-logo {
     width: 40%;
 }
@@ -107,6 +113,22 @@ p {
 }
 .sitefooter li {
     margin-bottom: 5px;
+}
+.sitefooter .nav-logo a {
+    display: block;
+    width: 160px;
+    padding-top: 20px;
+}
+.sitefooter .nav-logo a img {
+    display: block;
+    width: 100%;
+}
+.sitefooter p {
+    display: block;
+    float: none;
+    clear: both;
+    font-size: 11px;
+    text-align: center;
 }
 
 @media (max-width: 767px) {
@@ -130,25 +152,61 @@ p {
     padding: 20px 0 0 0;
     background: #4c4c4c;
     z-index: 1;
+    -webkit-transition: width .5s;
+    transition: width .5s;
+}
+.contentnav:hover {
+    width: $content-nav-width-open;
+    -webkit-transition: width .5s;
+    transition: width .5s;
 }
 
 .navlogo {
     display: table;
-    margin: 0 auto 80px;
+    margin: 0 0 80px 1.25rem;
 }
 .navglobe {
     display: table;
-    margin: 0 auto 130px;
+    margin: 0 0 130px 1.45rem;
+}
+.navitem {
+    display: block;
+    height: 28px;
+    max-height: 28px;
+    margin: 0 0 35px 27px;
+    overflow: hidden;
+}
+.navitem a {
+    overflow: hidden;
+    height: 28px;
+    max-height: 28px;
+    padding-left: 50px;
+    /*font-size: 2.731rem;*/
+    line-height: 29.731px;
+    color: white;
+}
+.navitem a span {
+    display: none;
+    opacity: 0; 
+    font-size: 0.2rem;
+}
+.contentnav:hover .navitem span {
+    display: inline-block;
+    animation: opacity .5s;
+    animation-fill-mode: forwards;
+}
+@keyframes opacity {
+    0% { font-size: 0.2rem; opacity: 0; }
+    90% { font-size: 0.2rem; opacity: 0; }
+    100% { font-size: 2.731rem; opacity: 1; }
 }
 
 .nav-dot {
-    display: table;
-    width: 28px;
+    display: block;
     height: 28px;
-    margin: 0 auto 35px;
     background: transparent url('images/navdots.png') no-repeat top left;
 }
-.nav-dot:hover,
+.navitem:hover .nav-dot,
 .nav-dot.active {
     background-position-y: -29px;
 }

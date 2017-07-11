@@ -13,22 +13,26 @@
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
 </head>
 <body data-page="{{ page.id }}" data-layout="{{ page.layout }}">
+{% if page.stars %}
     <div class="stars">
 {% for i in (1..100) %}<div class="starcontainer"><div class="star"></div></div>{% endfor %}
     </div>
+{% endif %}
     <div class="tmpl-wrap" style="background-image: url('{{ site.base_path }}/{{ page.head_bg }}');">
         <div id="main" role="main" class="container">
             {{ content }}
         </div>
+        {% if page.showfoot == "false" %}
         {% include footer.html %}
+        {% endif %}
     </div>
 {% if page.jsarr %}
     {% for js in page.jsarr %}
         <script type="text/javascript">
         {% include {{ js }} %}
         </script>
-        {% endfor %}
-    {% endif %}
+    {% endfor %}
+{% endif %}
     {% include analytics.html %}
 </body>
 </html>

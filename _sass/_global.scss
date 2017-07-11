@@ -318,6 +318,83 @@ p {
     }
 }
 
+/** START: Entry Pages **/
+[data-layout="bare"] .tmpl-wrap {
+    min-height: 100vh;
+    background-size: cover;
+}
+
+.bare-head {
+    position: absolute;
+    top: 31px;
+    left: 48px;
+    width: 90px;
+    height: 90px;
+}
+.bare-head img {
+    display: block;
+    width: 100%;
+}
+.bare-content {
+    display: block;
+    max-width: 510px;
+    width: 56%;
+    margin: 0 auto;
+    padding-top: 165px;
+}
+.bare-content h1 {
+    font-size: 4.954rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+.bare-content p {
+    margin-bottom: 70px;
+    font-size: 2.252rem;
+}
+
+.landing-nav li {
+    float: left;
+}
+.landing-nav li + li {
+    margin-left: 40px;
+}
+
+.btn-rnd-lg {
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+.btn-rnd-lg:hover {
+    border-color: #26dfa1;
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 991px) {
+    .bare-content {
+        max-width: 99999px;
+        width: 75%;
+        margin: 0 auto;
+        padding-top: 165px;
+    }
+}
+@media (max-width: 767px) {
+    .landing-nav li {
+        float: none;
+        margin-bottom: 20px;
+    }
+    .landing-nav li + li {
+        margin-left: 0;
+    }
+}
+/** END: Entry Pages **/
+
 
 @media (min-width: 768px) {
     .container {

@@ -1,19 +1,15 @@
 ---
-layout: default
+layout: bare
+title: Blocksat is here.
+head_bg: images/landing_bg.jpg
+showfoot: false
+id: index
 ---
-
-<div class="posts">
-    index
-  {% for post in site.posts %}
-    <article class="post">
-
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
+<div class="bare-content">
+    <h1>{{ page.title }}</h1>
+    <p>At vero eos et accusamus et iusto odio digni ssim os ducimus qui blan ditiis prae sentium volupta tum dsfdel eniti atque.</p>
+    <ul class="landing-nav">
+        <li><a class="btn-rnd-lg" href="#" title="Start Exploring">START EXPLORING</a></li>
+        <li><a class="btn-rnd-lg" href="#" title="Live Interactive">LIVE INTERACTIVE</a></li>
+    </ul>
 </div>

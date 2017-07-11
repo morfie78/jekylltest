@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<section class="bare">
+    <div class="bare-head">
+        <a href="#" title="{{ site.name }}"><img src="{{ site.base_path }}/images/navlogo.png" alt="{{ site.name }}" /></a>
+    </div>
+    <div class="entry">
+        {{ content }}
+    </div>
+    <div class="content-foot">
+        {% if page.shownav %}
+        <ul>
+            <li><a href="#" title="Blog">Blog</a></li>
+            <li><a href="#" title="Press">Press</a></li>
+        </ul>
+        {% endif %}
+    </div>
+</section>

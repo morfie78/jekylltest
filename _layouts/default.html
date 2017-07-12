@@ -19,13 +19,14 @@
     </div>
 {% endif %}
     <div class="tmpl-wrap" style="background-image: url('{{ site.base_path }}/{{ page.head_bg }}');">
-        <div id="main" role="main" class="container">
+        <div id="main" role="main" class="{% if page.containerclass %}{{ page.containerclass }}{% else %}container{% endif %}">
             {{ content }}
         </div>
         {% if page.showfoot == "false" %}
         {% include footer.html %}
         {% endif %}
     </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 {% if page.jsarr %}
     {% for js in page.jsarr %}
         <script type="text/javascript">

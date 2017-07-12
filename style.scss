@@ -3,6 +3,7 @@
 
 $brand-primary: #00ccff;
 $brand-secondary: #83e1fd;
+$brand-tertiary: #9eecff;
 $text-color: white !default;
 $grid-gutter-width: 0px !default;
 
@@ -12,4 +13,5 @@ $content-leftmar: 28px;
 
 @import "bootstrap";
 @import "stars.scss";
+@import "blackhole.scss";
 @import "global.scss";

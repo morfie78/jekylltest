@@ -1,0 +1,75 @@
+﻿/* Credits: https://codepen.io/darrylhuffman/pen/vXjVJg */
+
+$maxorbit: 175px; // distance from center
+
+.blackhole {
+	height: $maxorbit * 2;
+	width: $maxorbit * 2;
+	position: relative;
+	display: flex;
+}
+
+.centerHover {
+	width: $maxorbit * 2;
+	height: $maxorbit * 2;
+	background-color: transparent;
+	border-radius: 50%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: $maxorbit * -1;
+	margin-left: $maxorbit * -1;
+	z-index: 2;
+	cursor: pointer;
+	line-height: $maxorbit * 2;
+	text-align: center;
+	transition: all 500ms;
+	
+	&.open  {
+		opacity: 0;
+		pointer-events: none;
+	}
+	
+	&:hover span {
+		color: #DDD;
+		/*
+		&:before { background-color: #DDD; }
+		&:after { background-color: #DDD; }*/
+	}
+	
+	span {
+		color: white;
+		font-family: 'Lato', sans-serif;
+		font-size: 18px;
+		position: relative;
+		transition: all 500ms;
+		/*
+		&:before {
+			content: '';
+			display: inline-block;
+			height: 1px;
+			width: 16px;
+			margin-right: 12px;
+			margin-bottom: 4px;
+			background-color: #666;
+			transition: all 500ms;
+		}
+		&:after {
+			content: '';
+			display: inline-block;
+			height: 1px;
+			width: 16px;
+			margin-left: 12px;
+			margin-bottom: 4px;
+			background-color: #666;
+			transition: all 500ms;
+		}*/
+	}
+}
+canvas {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	margin: auto;
+}

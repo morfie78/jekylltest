@@ -6,6 +6,7 @@ description: Bitcoin is the first decentralized cryptocurrency that bypasses ban
 yt_url: https://www.youtube.com/embed/OyQ5EbOEXoY?rel=0&amp;showinfo=0
 head_bg: images/bitcoin_head.png
 id: bitcoin
+showfoot: true
 foot_descr: Find out what makes <br/>Bitcoin so secure.
 jsarr:
 - js/ScrollTrigger.min.js
@@ -21,6 +22,8 @@ jsarr:
         <img class="content-img" src="{{ site.base_path }}/{{ bitcoin.image_path }}" alt="{{ bitcoin.title }}" />
     {% if bitcoin.image_txt %}
         <p>$2963.34</p>
+        <div id="power-bitcoin"><canvas width="200" height="95"></canvas></div>
+        <img class="bitcoin_symbol" src="{{ site.base_path }}/{{ bitcoin.bitcoin_symbol }}" alt="" />
     </div>
     {% endif %}
 {% if bitcoin.bot_pic %}

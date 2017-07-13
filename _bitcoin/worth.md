@@ -3,6 +3,7 @@ name: worth
 title: What's It Worth
 image_path: images/worth.png
 bot_pic: images/satpic.png
+bitcoin_symbol: images/bitcoin_symbol.png
 image_txt: something
 ---
 As with any currency, the value of bitcoin is always changing.  Over time, more and more people have begun using bitcoin which has caused it to significantly increase in value.  However, to better understand the value of bitcoin, we must first ask: why do we value things differently?

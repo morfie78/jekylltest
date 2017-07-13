@@ -1,6 +1,95 @@
-$('.blackhole').each(function () {
-    blackhole(this);
-});
+
+/** START: Helpers **/
+Date.prototype.yyyymmdd = function () {
+    var mm = this.getMonth() + 1; // getMonth() is zero-based
+    var dd = this.getDate();
+
+    return [this.getFullYear(),
+            (mm > 9 ? '' : '0') + mm,
+            (dd > 9 ? '' : '0') + dd
+    ].join('-');
+};
+/** END: Helpers **/
+
+/** START: Graphs **/
+function initGraphs() {
+    function initPowerGraph() {
+        var powerGraph = $('#power-bitcoin canvas');
+        var ctx = powerGraph.get(0).getContext("2d");
+
+
+        var powerChart = new Chart(ctx, {
+            type: 'line',
+            defaults: {
+                global: {
+                    elements: {
+                        line: {
+                            tension: 0
+                        }
+                    }
+                }
+            },
+            data: {
+                labels: ["2013", "2014", "2015", "2016", "2017"],
+                datasets: [{
+                    label: '',
+                    data: [bitcoinYearly['2013'], bitcoinYearly['2014'], bitcoinYearly['2015'], bitcoinYearly['2016'], bitcoinYearly['2017']],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0)'
+                    ],
+                    borderColor: [
+                        'rgba(43,253,180,1)'
+                    ],
+                    borderWidth: 1,
+                    fill: false,
+                    pointRadius: 0,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                bezierCurve: false,
+                elements: {
+                    line: {
+                        tension: 0
+                    }
+                },
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            fontColor: '#fff'
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            fontColor: '#fff'
+                        }
+                    }]
+                },
+                tooltips: {
+                    enabled: false
+                }
+            }
+        });
+        //powerChart.canvas.parentNode.style.height = '95px';
+        //powerChart.canvas.parentNode.style.width = '284px';
+    }
+
+    function init() {
+        initPowerGraph();
+    }
+
+    init();
+}
+/** END: Graphs **/
+
+/** START: Blackhole buttons for menu page **/
 
 function blackhole(element) {
     var debugThisFile = true;
@@ -190,7 +279,8 @@ function blackhole(element) {
         currentTime = (now - startTime) / 50;
 
         context.fillStyle = 'rgba(0,42,56,0.2)'; // somewhat clear the context, this way there will be trails behind the stars 
-        context.fillRect(0, 0, cw, ch);
+        //context.fillRect(0, 0, cw, ch);
+        context.clearRect(0, 0, cw, ch);
 
         for (var i = 0; i < stars.length; i++) {  // For each star
             if (stars[i] != stars) {
@@ -216,3 +306,90 @@ function blackhole(element) {
     }
     init();
 }
+/** END: Blackhole buttons for menu page **/
+
+/** START: Read Bitcoin Data **/
+var bitcoinYearly = {};
+function readBitcoinData(maincallback) {
+    var currentPrice = 0;
+
+    function getCurrentPrice() {
+        var priceField = $('[data-name="worth"] .content_img_box p');
+        if (priceField.length) {
+            priceField.html('$' + currentPrice.toFixed(2));
+        }
+    }
+
+    function setCurrentPrice(callback) {
+        var url = 'http://api.coindesk.com/v1/bpi/currentprice/USD.json';
+        $.getJSON(url, function (data) {
+            currentPrice = data.bpi.USD.rate_float;
+            getCurrentPrice();
+            if (typeof callback === 'function') {
+                callback();
+            }
+
+        });
+    }
+
+    function setYearlyPrice(callback) {
+        var date = new Date();
+        var today = date.yyyymmdd();
+        var url = 'http://api.coindesk.com/v1/bpi/historical/close.json?start=2013-01-01&end=' + today;
+        
+
+        // In case you are wondering why I don't just use this to get the current price as well,
+        // the historical endpoint doesn't return the current price, only yesterday's price.
+        $.getJSON(url, function (data) {
+            bitcoinYearly = {
+                '2013': data.bpi['2013-01-01'].toFixed(2),
+                '2014': data.bpi['2014-01-01'].toFixed(2),
+                '2015': data.bpi['2015-01-01'].toFixed(2),
+                '2016': data.bpi['2016-01-01'].toFixed(2),
+                '2017': currentPrice.toFixed(2)
+            }
+            if (typeof callback === 'function') {
+                callback();
+            }
+        });
+
+    }
+
+    function init() {
+        if (currentPrice == 0) {
+            setCurrentPrice(function () {
+                setYearlyPrice(maincallback);
+            });
+        }
+    }
+
+    init();
+}
+/** END: Read Bitcoin Data **/
+
+function initBlocksat() {
+
+    function init() {
+        var curPage = $('body').data('page');
+        curPage = (typeof curPage === 'undefined') ? '' : curPage;
+
+        // Let's only init functions that we actually need on the page, and not for every page.
+        switch(curPage) {
+            case 'menu':
+                $('.blackhole').each(function () {
+                    blackhole(this);
+                });
+                break;
+            case 'bitcoin':
+                readBitcoinData(function () {
+                    initGraphs();
+                });
+                break;
+        }
+
+
+    }
+
+    init();
+}
+initBlocksat();

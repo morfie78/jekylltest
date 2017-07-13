@@ -22,11 +22,12 @@
         <div id="main" role="main" class="{% if page.containerclass %}{{ page.containerclass }}{% else %}container{% endif %}">
             {{ content }}
         </div>
-        {% if page.showfoot == "false" %}
+        {% if page.showfoot == true %}
         {% include footer.html %}
         {% endif %}
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
 {% if page.jsarr %}
     {% for js in page.jsarr %}
         <script type="text/javascript">

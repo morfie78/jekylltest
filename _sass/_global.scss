@@ -321,6 +321,23 @@ p {
         }
     }
 }
+/** END: Content Pages**/
+
+/** START: Power of Bitcoin Page **/
+#power-bitcoin {
+    position: absolute;
+    top: 270px;
+    left: 45px;
+    width: 298px;
+    height: 94px;
+}
+.bitcoin_symbol {
+    position: absolute;
+    top: 199px;
+    left: 151px;
+    z-index: 2;
+}
+/** END: Power of Bitcoin Page **/
 
 /** START: Entry Pages **/
 [data-layout="bare"] .tmpl-wrap {
@@ -416,6 +433,7 @@ p {
 .crashcourse {
     position: relative;
     width: 100%;
+    margin-bottom: 100px;
     padding: 60px 0 50px;
     background: rgba(14,27,37,.5);
 }
@@ -423,7 +441,9 @@ p {
     margin-bottom: 60px;
     text-align: center;
 }
-.menu-crashcourse { text-align: center; }
+.menu-crashcourse {
+    text-align: center;
+}
 .menu-crashcourse ul {}
 .menu-crashcourse li {
     display: inline;
@@ -437,11 +457,46 @@ p {
 .menu-crashcourse a {
     color: $brand-tertiary;
 
+    p {
+        display: inline-block;
+        margin: 0 0 0 20px;
+        padding-top: 16px;
+        font-size: 2.8rem;
+        vertical-align: top;
+    }
+
     &:hover {
         text-decoration: none;
         color: white;
     }
 }
+.menu-crashcourse li:last-child p {
+        padding-top: 34px;
+}
+.bare-foot {
+    text-align: center;
+}
+.bare-nav {
+    padding-bottom: 70px;
+
+    li {
+        display: inline;
+        font-size: 2.8rem;
+        font-weight: 600;
+    }
+    li + li {
+        margin-left: 70px;
+    }
+    a {
+        color: $brand-tertiary;
+
+        &:hover {
+            text-decoration: none;
+            color: white;
+        }
+    }
+}
+
 
 .sprite-cc {
     display: inline-block;
@@ -474,6 +529,14 @@ p {
         margin-bottom: 20px;
     }
     .landing-nav li + li {
+        margin-left: 0;
+    }
+    .menu-crashcourse li {
+        float: none;
+        display: block;
+        margin: 0 auto;
+    }
+    .menu-crashcourse li + li {
         margin-left: 0;
     }
 }
